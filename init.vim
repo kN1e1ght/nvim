@@ -54,12 +54,11 @@ nnoremap Q :q<CR>
 
 
 let g:coc_global_extension = [
-	"coc-json",
-	"coc-pyright",
-	"coc-rust-analyzer",
-	"coc-vimlsp",
-	"coc-explorer"
-	   ]
+			\"coc-json",
+			\"coc-pyright",
+			\"coc-rust-analyzer",
+			\"coc-vimlsp",
+			\"coc-explorer"]
 " Use tab for trigger completion with characters ahead and navigate.
 " " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " " other plugin before putting this into your config.
