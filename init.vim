@@ -113,7 +113,10 @@ let g:coc_global_extensions = [
 			\"coc-pyright",
 			\"coc-rust-analyzer",
 			\"coc-vimlsp",
-			\"coc-explorer"]
+			\"coc-explorer",
+			\"coc-snippets",
+			\"coc-toml",
+			\"coc-clangd"]
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
