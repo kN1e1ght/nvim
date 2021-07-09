@@ -15,11 +15,14 @@ noremap sj :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
 noremap sk :set splitbelow<CR>:split<CR>
 noremap sl :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
 noremap sh :set splitright<CR>:vsplit<CR>
+"noremap sw exec ":w !sudo tee %<CR>"
 
 noremap <LEADER>h <c-w>h
 noremap <LEADER>j <c-w>j
 noremap <LEADER>k <c-w>k
 noremap <LEADER>l <c-w>l
+noremap <LEADER>u <c-o>
+noremap <LEADER>i <c-i>
 
 
 noremap <left>   :vertical resize-5<CR>
@@ -27,12 +30,13 @@ noremap <up>     :res +5<CR>
 noremap <down>   :res -5<CR>
 noremap <right>  :vertical resize+5<CR>
 
-noremap tu :tabe<CR>
+noremap tj :tabe<CR>
 noremap th :-tabnext<CR>
 noremap tl :+tabnext<CR>
-noremap <LEADER>da :r !"date '+%Y-%m-%d'"<CR>
+noremap <LEADER>ad :r !date -I<CR>
+noremap <LEADER>af :r !figlet 
 
-
+noremap <LEADER><LEADER> :e ~/.config/nvim/init.vim<CR>
 set clipboard+=unnamedplus
 
 
@@ -73,9 +77,12 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'tpope/vim-surround'
 Plug 'gcmt/wildfire.vim'
 
+Plug 'mhinz/vim-startify'
 
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'vimwiki/vimwiki'
+Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -96,13 +103,27 @@ call plug#end()
 let g:instant_markdown_port = 8888
 "let g:instant_markdown_python = 1
 
+"minimap
 
+hi MinimapCurrentLine ctermfg=Green guifg=#50FA7B guibg=#32302f
+let g:minimap_highlight = 'MinimapCurrentLine'
+
+let g:minimap_width = 10
+let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1
+let g:minimap_git_colors = 1
+let g:minimap_highlight_range = 1
 "dress neovim
 set termguicolors
 color deus
 
 nnoremap W :w<CR>
 nnoremap Q :q<CR>
+
+"markdown preview
+
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
 
 "====coc.nvim
