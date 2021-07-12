@@ -3,6 +3,17 @@ set smartcase
 set number
 set relativenumber
 set scrolloff=5
+" ===
+" === os ditect
+" ===
+
+let g:iswindows = 0
+let g:islinux = 0
+if(has("win32") || has("win64") || has("win95") || has("win16"))
+    let g:iswindows = 1
+else
+    let g:islinux = 1
+endif
 
 let mapleader = ' '
 map J 5j
@@ -24,7 +35,7 @@ noremap <LEADER>l <c-w>l
 noremap <LEADER>u <c-o>
 noremap <LEADER>i <c-i>
 
-
+set clipboard+=unnamedplus
 noremap <left>   :vertical resize-5<CR>
 noremap <up>     :res +5<CR>
 noremap <down>   :res -5<CR>
@@ -33,12 +44,22 @@ noremap <right>  :vertical resize+5<CR>
 noremap tj :tabe<CR>
 noremap th :-tabnext<CR>
 noremap tl :+tabnext<CR>
+" ===
+" === Personal add
+" ===
+
 noremap <LEADER>ad :r !date -I<CR>
 noremap <LEADER>af :r !figlet 
+inoremap <c-d> <esc>f"a
+inoremap <c-a> <esc>A
 
-noremap <LEADER><LEADER> :e ~/.config/nvim/init.vim<CR>
-set clipboard+=unnamedplus
 
+if(g:islinux)
+	noremap <LEADER><LEADER> :e ~/.config/nvim/init.vim<CR>
+endif
+if(g:iswindows)
+	noremap <leader><leader> :e ~/Appdata/Local/nvim/init.vim<CR>
+endif
 
 " Compile function
 noremap r :call CompileRunGcc()<CR>
@@ -78,12 +99,13 @@ Plug 'tpope/vim-surround'
 Plug 'gcmt/wildfire.vim'
 
 Plug 'mhinz/vim-startify'
-
+Plug 'honza/vim-snippets'
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'vimwiki/vimwiki'
 Plug 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
-
 Plug 'vim-airline/vim-airline'
+Plug 'jiangmiao/auto-pairs'
+
 Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'theniceboy/nvim-deus'
@@ -137,7 +159,9 @@ let g:coc_global_extensions = [
 			\"coc-explorer",
 			\"coc-snippets",
 			\"coc-toml",
-			\"coc-clangd"]
+			\"coc-clangd",
+			\"coc-yank"]
+
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -184,3 +208,6 @@ let g:airline_theme='fruit_punch'
 
 "coc-explorer
 nnoremap <space>e :CocCommand explorer<CR>
+"coc-yank
+nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
+

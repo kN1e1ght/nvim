@@ -11,5 +11,9 @@
 		"json",
 		"rust",
 		"python"
-	]
+	],
+	"snippets.ultisnips.directories": [
+		"$HOME/.config/nvim/Ultisnips"
+	],
+	"snippets.userSnippetsDirectory": "$HOME/.config/nvim/Ultisnips"
 }
