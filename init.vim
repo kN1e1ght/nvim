@@ -58,7 +58,7 @@ if(g:islinux)
 	noremap <LEADER><LEADER> :e ~/.config/nvim/init.vim<CR>
 endif
 if(g:iswindows)
-	noremap <leader><leader> :e ~/Appdata/Local/nvim/init.vim<CR>
+	noremap <leader><leader> :e ~/AppData/Local/nvim/init.vim<CR>
 endif
 
 " Compile function
