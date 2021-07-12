@@ -8,3 +8,5 @@ with open(file_name) as f:
     text["snippets.ultisnips.directories"] = "$HOME/.config/nvim/Ultisnips"
 
     text["snippets.userSnippetsDirectory"] = "$HOME/.config/nvim/Ultisnips"
+with open(file_name, "w+") as f:
+    json.dump(text, f)
