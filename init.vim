@@ -59,6 +59,7 @@ if(g:islinux)
 endif
 if(g:iswindows)
 	noremap <leader><leader> :e ~/AppData/Local/nvim/init.vim<CR>
+	hi Normal guibg=NONE ctermbg=NONE
 endif
 
 " Compile function
