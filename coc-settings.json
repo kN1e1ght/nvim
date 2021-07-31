@@ -2,8 +2,10 @@
 	"coc.preferences.formatOnSaveFiletypes": [
 		"json",
 		"rust",
-		"python"
+		"python",
+		"javascript",
+		"typescript"
 	],
 	"suggest.noselect": false,
-	"snippets.userSnippetsDirectory": "/home/yann/.config/nvim/Ultisnips"
+	"snippets.userSnippetsDirectory": "C:/Users/85065/AppData/Local/nvim/Ultisnips"
 }

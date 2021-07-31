@@ -3,6 +3,12 @@ set smartcase
 set number
 set relativenumber
 set scrolloff=5
+
+" ===
+" === airline theme
+" ===
+
+let g:airline_theme='fruit_punch'
 " ===
 " === os ditect
 " ===
@@ -66,16 +72,6 @@ noremap <LEADER>af :r !figlet
 inoremap <c-d> <esc>f"a
 inoremap <c-a> <esc>A
 
-" ===
-" === nvim config path (OS specific)
-" ===
-
-if(g:islinux)
-	noremap <LEADER><LEADER> :e ~/.config/nvim/init.vim<CR>
-else
-	noremap <leader><leader> :e ~/AppData/Local/nvim/init.vim<CR>
-	hi Normal guibg=NONE ctermbg=NONE
-endif
 
 " ===
 " === Compile Func
@@ -250,10 +246,15 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 
+
+
 " ===
-" === airline theme
+" === nvim config path (OS specific)
 " ===
 
-let g:airline_theme='fruit_punch'
-
-
+if(g:islinux)
+	noremap <LEADER><LEADER> :e ~/.config/nvim/init.vim<CR>
+else
+	noremap <leader><leader> :e ~/AppData/Local/nvim/init.vim<CR>
+	hi Normal guibg=NONE ctermbg=NONE
+endif
