@@ -8,7 +8,6 @@ set scrolloff=5
 " ===
 
 
-
 let g:iswindows = 0
 let g:islinux = 0
 if(has("win32") || has("win64") || has("win95") || has("win16"))
@@ -28,6 +27,9 @@ map H 5h
 map L 5l
 map W 5w
 map B 5b
+nnoremap S :w<CR>
+nnoremap Q :q<CR>
+
 " ===
 " === split
 " ===
@@ -168,9 +170,6 @@ let g:minimap_highlight_range = 1
 set termguicolors
 color deus
 
-nnoremap W :w<CR>
-nnoremap Q :q<CR>
-
 " ===
 " === vim wiki
 " ===
@@ -194,6 +193,9 @@ nnoremap <space>e :CocCommand explorer<CR>
 " ===
 
 nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
+" ===
+" === coc Global
+" ===
 
 let g:coc_global_extensions = [
 			\"coc-json",
@@ -201,6 +203,7 @@ let g:coc_global_extensions = [
 			\"coc-rust-analyzer",
 			\"coc-vimlsp",
 			\"coc-explorer",
+			\"coc-snippets",
 			\"coc-toml",
 			\"coc-clangd",
 			\"coc-yank"]

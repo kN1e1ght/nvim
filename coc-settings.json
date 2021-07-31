@@ -5,4 +5,5 @@
 		"python"
 	],
 	"suggest.noselect": false,
+	"snippets.userSnippetsDirectory": "/home/yann/.config/nvim/Ultisnips"
 }
