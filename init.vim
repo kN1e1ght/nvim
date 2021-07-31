@@ -7,6 +7,8 @@ set scrolloff=5
 " === os ditect
 " ===
 
+
+
 let g:iswindows = 0
 let g:islinux = 0
 if(has("win32") || has("win64") || has("win95") || has("win16"))
@@ -15,12 +17,21 @@ else
     let g:islinux = 1
 endif
 
+" ===
+" === custom keyboard mapping
+" ===
+
 let mapleader = ' '
 map J 5j
 map K 5k
 map H 5h
 map L 5l
-"split
+map W 5w
+map B 5b
+" ===
+" === split
+" ===
+
 noremap s <nop>
 noremap sj :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
 noremap sk :set splitbelow<CR>:split<CR>
@@ -53,16 +64,21 @@ noremap <LEADER>af :r !figlet
 inoremap <c-d> <esc>f"a
 inoremap <c-a> <esc>A
 
+" ===
+" === nvim config path (OS specific)
+" ===
 
 if(g:islinux)
 	noremap <LEADER><LEADER> :e ~/.config/nvim/init.vim<CR>
-endif
-if(g:iswindows)
+else
 	noremap <leader><leader> :e ~/AppData/Local/nvim/init.vim<CR>
 	hi Normal guibg=NONE ctermbg=NONE
 endif
 
-" Compile function
+" ===
+" === Compile Func
+" ===
+
 noremap r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
@@ -94,6 +110,9 @@ func! CompileRunGcc()
 		:term cargo run
 	endif
 endfunc
+" ===
+" === Vim plug
+" ===
 
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'tpope/vim-surround'
@@ -112,13 +131,16 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'theniceboy/nvim-deus'
 call plug#end()
 
-"vim-instant-markdown
+" ===
+" === vim instant markdown
+" ===
+
 "Uncomment to override defaults:
 "let g:instant_markdown_slow = 1
-"let g:instant_markdown_autostart = 0
-"let g:instant_markdown_open_to_the_world = 1
-"let g:instant_markdown_allow_unsafe_content = 1
-"let g:instant_markdown_allow_external_content = 0
+let g:instant_markdown_autostart = 0
+let g:instant_markdown_open_to_the_world = 1
+let g:instant_markdown_allow_unsafe_content = 1
+let g:instant_markdown_allow_external_content = 0
 "let g:instant_markdown_mathjax = 1
 "let g:instant_markdown_mermaid = 1
 "let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
@@ -126,7 +148,10 @@ call plug#end()
 let g:instant_markdown_port = 8888
 "let g:instant_markdown_python = 1
 
-"minimap
+" ===
+" === minimap
+" ===
+
 
 hi MinimapCurrentLine ctermfg=Green guifg=#50FA7B guibg=#32302f
 let g:minimap_highlight = 'MinimapCurrentLine'
@@ -136,21 +161,39 @@ let g:minimap_auto_start = 1
 let g:minimap_auto_start_win_enter = 1
 let g:minimap_git_colors = 1
 let g:minimap_highlight_range = 1
-"dress neovim
+" ===
+" === dress up 
+" ===
+
 set termguicolors
 color deus
 
 nnoremap W :w<CR>
 nnoremap Q :q<CR>
 
-"markdown preview
+" ===
+" === vim wiki
+" ===
+
 
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
+" ===
+" === coc-nvim
+" ===
 
-"====coc.nvim
 
+" ===
+" === coc-explorer
+" ===
+
+nnoremap <space>e :CocCommand explorer<CR>
+" ===
+" === coc-yank
+" ===
+
+nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
 
 let g:coc_global_extensions = [
 			\"coc-json",
@@ -158,7 +201,6 @@ let g:coc_global_extensions = [
 			\"coc-rust-analyzer",
 			\"coc-vimlsp",
 			\"coc-explorer",
-			\"coc-snippets",
 			\"coc-toml",
 			\"coc-clangd",
 			\"coc-yank"]
@@ -204,11 +246,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 
-"airline themes
+" ===
+" === airline theme
+" ===
+
 let g:airline_theme='fruit_punch'
 
-"coc-explorer
-nnoremap <space>e :CocCommand explorer<CR>
-"coc-yank
-nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
 

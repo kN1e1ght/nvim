@@ -5,6 +5,4 @@
 		"python"
 	],
 	"suggest.noselect": false,
-	"snippets.ultisnips.directories": "C:/Users/85065/AppData/Local/nvim/Ultisnips",
-	"snippets.userSnippetsDirectory": "C:/Users/85065/AppData/Local/nvim/Ultisnips"
 }
