@@ -3,7 +3,6 @@ set smartcase
 set number
 set relativenumber
 set scrolloff=5
-
 " ===
 " === airline theme
 " ===
@@ -254,7 +253,9 @@ nmap <leader>rn <Plug>(coc-rename)
 
 if(g:islinux)
 	noremap <LEADER><LEADER> :e ~/.config/nvim/init.vim<CR>
+	let g:python3_host_prog = '/usr/bin/python'
 else
 	noremap <leader><leader> :e ~/AppData/Local/nvim/init.vim<CR>
+	let g:python3_host_prog = 'C://Python310/python.exe'
 	hi Normal guibg=NONE ctermbg=NONE
 endif
