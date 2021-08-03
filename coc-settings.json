@@ -1,4 +1,5 @@
 {
+	"coc.preferences.extensionUpdateCheck": "daily",
 	"coc.preferences.formatOnSaveFiletypes": [
 		"json",
 		"rust",
@@ -6,6 +7,9 @@
 		"javascript",
 		"typescript"
 	],
-	"suggest.noselect": false,
-	"snippets.userSnippetsDirectory": "C:/Users/85065/AppData/Local/nvim/Ultisnips"
+	"suggest.noselect": true,
+	"suggest.enablePreselect": false,
+	"list.previousKeymap": "<C-k>",
+	"list.nextKeymap": "<C-j>",
+	"snippets.userSnippetsDirectory": "C:/Users/85065/AppData/Local/nvim/UltiSnips"
 }

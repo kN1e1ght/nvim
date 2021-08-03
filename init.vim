@@ -66,10 +66,10 @@ noremap tl :+tabnext<CR>
 " === Personal add
 " ===
 
-noremap <LEADER>ad :r !date -I<CR>
 noremap <LEADER>af :r !figlet 
 inoremap <c-d> <esc>f"a
 inoremap <c-a> <esc>A
+
 
 
 " ===
@@ -196,12 +196,13 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-
-
-" ===
+"add this file type snippets
+nnoremap <leader>s :CocCommand snippets.editSnippets<cr>
+"show up marketplace
+nnoremap <leader>m :CocList marketplace<cr>
+"===
 " === coc-explorer
 " ===
-
 nnoremap <space>e :CocCommand explorer<CR>
 " ===
 " === coc-yank
@@ -209,14 +210,24 @@ nnoremap <space>e :CocCommand explorer<CR>
 
 nnoremap <silent> <leader>y  :<C-u>CocList -A --normal yank<cr>
 " ===
+" === coc-translator
+" ===
+nnoremap <space>t :CocCommand translator.popup<cr>
+" ===
 " === coc Global
 " ===
 
+
+let g:snips_author = "iujakchu"
 let g:coc_global_extensions = [
 			\"coc-json",
+			\"coc-translator",
+			\"coc-actions",
 			\"coc-pyright",
 			\"coc-rust-analyzer",
 			\"coc-vimlsp",
+			\"coc-marketplace",
+			\"coc-tsserver",
 			\"coc-explorer",
 			\"coc-snippets",
 			\"coc-toml",
@@ -235,29 +246,31 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+autocmd CursorHold * silent call CocActionAsync('highlight')
+" Manage extensions.
+nnoremap <silent><nowait> ex  :<C-u>CocList extensions<cr>
 
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
+" ===
+" === coc-snippets
+" ===
 
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
 
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
 
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 
-autocmd CursorHold * silent call CocActionAsync('highlight')
-" Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
 
 
 
