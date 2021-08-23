@@ -11,5 +11,5 @@
 	"suggest.enablePreselect": true,
 	"list.previousKeymap": "<C-k>",
 	"list.nextKeymap": "<C-j>",
-	"snippets.userSnippetsDirectory": "C:/Users/85065/AppData/Local/nvim/UltiSnips"
+	"snippets.userSnippetsDirectory": "C:/Users/85065/AppData/Local/nvim/Ultisnips"
 }
