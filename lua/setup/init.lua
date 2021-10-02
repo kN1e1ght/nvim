@@ -1,0 +1,7 @@
+require('setup.edge')
+require('setup.nvim-lsp-installer')
+require('setup.nvim-tree')
+require('setup.lualine')
+require('setup.telescope')
+require('setup.trouble')
+require('setup.glow')

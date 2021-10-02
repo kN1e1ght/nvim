@@ -14,16 +14,17 @@ vim.api.nvim_set_keymap('n','<leader>e',':NvimTreeToggle<CR>',{noremap=true,sile
 vim.api.nvim_set_keymap('n','<leader>r',':NvimTreeRefresh<CR>',{noremap=true,silent=true})
 vim.api.nvim_set_keymap('n','<leader>f',':NvimTreeFindFile<CR>',{noremap=true,silent=true})
 
-vim.api.nvim_set_keymap('n','s','<nop>',{noremap=true,silent=true})
-vim.api.nvim_set_keymap('n','sj',':set',{noremap=true,silent=true})
-vim.api.nvim_set_keymap('n','sk',':set',{noremap=true,silent=true})
-vim.api.nvim_set_keymap('n','sl',':set',{noremap=true,silent=true})
-vim.api.nvim_set_keymap('n','sh',':set',{noremap=true,silent=true})
+vim.api.nvim_set_keymap('n','<leader>j',':set splitbelow<CR>:split<CR>',{noremap=true,silent=true})
+vim.api.nvim_set_keymap('n','<leader>k',':set nosplitbelow<CR>:split<CR>',{noremap=true,silent=true})
+vim.api.nvim_set_keymap('n','<leader>l',':set splitright<CR>:vsplit<CR>',{noremap=true,silent=true})
+vim.api.nvim_set_keymap('n','<leader>h',':set nosplitright<CR>:vsplit<CR>',{noremap=true,silent=true})
 
-vim.api.nvim_set_keymap('n','<C-h>','<c-w>h',{noremap=true,silent=true})
-vim.api.nvim_set_keymap('n','<C-j>','<c-w>j',{noremap=true,silent=true})
-vim.api.nvim_set_keymap('n','<C-k>','<c-w>k',{noremap=true,silent=true})
-vim.api.nvim_set_keymap('n','<C-l>','<c-w>l',{noremap=true,silent=true})
+
+vim.api.nvim_set_keymap('n','s','<nop>',{noremap=true,silent=true})
+vim.api.nvim_set_keymap('n','sh','<c-w>h',{noremap=true,silent=true})
+vim.api.nvim_set_keymap('n','sj','<c-w>j',{noremap=true,silent=true})
+vim.api.nvim_set_keymap('n','sk','<c-w>k',{noremap=true,silent=true})
+vim.api.nvim_set_keymap('n','sl','<c-w>l',{noremap=true,silent=true})
 
 vim.api.nvim_set_keymap('n','<left>',':vertical',{noremap=true,silent=true})
 vim.api.nvim_set_keymap('n','<up>',':res',{noremap=true,silent=true})
@@ -40,4 +41,4 @@ vim.api.nvim_set_keymap('n','<LEADER>af',':r',{noremap=true,silent=true})
 
 vim.api.nvim_set_keymap('n','r',':call',{noremap=true,silent=true})
 --test
-vim.api.nvim_set_keymap('n','f',':source '..vim.fn.stdpath('config')..'/'..'init.lua',{noremap=true,silent=true})
+vim.api.nvim_set_keymap('n','f',':luafile '..vim.fn.stdpath('config')..'/'..'init.lua<CR>',{noremap=true})
