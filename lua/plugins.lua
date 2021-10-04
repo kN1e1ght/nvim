@@ -5,7 +5,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd 'packadd packer.nvim'
 end
 
-require('packer').startup(function()
+require('packer').startup(function(use)
 
 
   -- Packer can manage itself
@@ -15,10 +15,16 @@ require('packer').startup(function()
 
   -- Simple plugins can be specified as strings
 	use 'tpope/vim-surround'
+	use 'sainnhe/edge'
+	use 'vim-airline/vim-airline-themes'
+	use {'vim-airline/vim-airline',require = 'vim-airilne/vim-airline-themes'}
+	use 'nvim-treesitter/nvim-treesitter-refactor'
 	use 'gcmt/wildfire.vim'
+	use 'simrat39/rust-tools.nvim'
+	use 'p00f/nvim-ts-rainbow'
+	use { 'nvim-treesitter/nvim-treesitter' ,run = ':TSUpdate'}
 	use 'folke/zen-mode.nvim'
 	use 'mhinz/vim-startify'
-	use 'sainnhe/edge'
 	use {"ellisonleao/glow.nvim"}
 	--use {'gelguy/wilder.nvim',
 	--config = function()
@@ -28,11 +34,6 @@ require('packer').startup(function()
 	use 'dstein64/vim-startuptime'
 	use 'lukas-reineke/indent-blankline.nvim'
 	use 'jiangmiao/auto-pairs'
-	use {
-	  'hoob3rt/lualine.nvim',
-	  requires = {'kyazdani42/nvim-web-devicons', opt = true}
-}
-
 	use {
 	    'kyazdani42/nvim-tree.lua',
 	    requires = 'kyazdani42/nvim-web-devicons'
