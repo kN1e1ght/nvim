@@ -77,9 +77,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yann/.local/share/nvim/site/pack/packer/start/edge"
   },
-  ["lualine.nvim"] = {
+  ["glow.nvim"] = {
     loaded = true,
-    path = "/home/yann/.local/share/nvim/site/pack/packer/start/lualine.nvim"
+    path = "/home/yann/.local/share/nvim/site/pack/packer/start/glow.nvim"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/yann/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
+  },
+  ["nvim-lsp-installer"] = {
+    loaded = true,
+    path = "/home/yann/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -89,6 +97,18 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yann/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/yann/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+  },
+  ["nvim-treesitter-refactor"] = {
+    loaded = true,
+    path = "/home/yann/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor"
+  },
+  ["nvim-ts-rainbow"] = {
+    loaded = true,
+    path = "/home/yann/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/yann/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
@@ -97,9 +117,38 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yann/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/home/yann/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+  },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/home/yann/.local/share/nvim/site/pack/packer/start/rust-tools.nvim"
+  },
+  ["telescope.nvim"] = {
+    loaded = true,
+    path = "/home/yann/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+  },
+  ["trouble.nvim"] = {
+    config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0" },
+    loaded = true,
+    path = "/home/yann/.local/share/nvim/site/pack/packer/start/trouble.nvim"
+  },
+  ["vim-airline"] = {
+    loaded = true,
+    path = "/home/yann/.local/share/nvim/site/pack/packer/start/vim-airline"
+  },
+  ["vim-airline-themes"] = {
+    loaded = true,
+    path = "/home/yann/.local/share/nvim/site/pack/packer/start/vim-airline-themes"
+  },
   ["vim-startify"] = {
     loaded = true,
     path = "/home/yann/.local/share/nvim/site/pack/packer/start/vim-startify"
+  },
+  ["vim-startuptime"] = {
+    loaded = true,
+    path = "/home/yann/.local/share/nvim/site/pack/packer/start/vim-startuptime"
   },
   ["vim-surround"] = {
     loaded = true,
@@ -108,10 +157,18 @@ _G.packer_plugins = {
   ["wildfire.vim"] = {
     loaded = true,
     path = "/home/yann/.local/share/nvim/site/pack/packer/start/wildfire.vim"
+  },
+  ["zen-mode.nvim"] = {
+    loaded = true,
+    path = "/home/yann/.local/share/nvim/site/pack/packer/start/zen-mode.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: trouble.nvim
+time([[Config for trouble.nvim]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
+time([[Config for trouble.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

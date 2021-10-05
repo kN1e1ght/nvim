@@ -1,1 +1,3 @@
-## bump to lua
+# TODO
+- [ ] Completion
+- [ ] plugins specific stuff

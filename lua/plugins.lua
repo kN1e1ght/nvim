@@ -16,7 +16,29 @@ require('packer').startup(function(use)
   -- Simple plugins can be specified as strings
 	use 'tpope/vim-surround'
 	use 'sainnhe/edge'
+	use 'glepnir/lspsaga.nvim'
+	use 'itchyny/vim-cursorword'
 	use 'vim-airline/vim-airline-themes'
+	use 'simrat39/symbols-outline.nvim'
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/nvim-cmp'
+	use 'L3MON4D3/LuaSnip' 
+	use 'saadparwaiz1/cmp_luasnip'
+	use {
+  "ray-x/lsp_signature.nvim",
+  config = function()
+	  require "lsp_signature".setup()
+			end
+}
+	use { 'norcalli/nvim-colorizer.lua' ,
+	config = function()
+	require'colorizer'.setup{}
+			end}
+--	use {
+--	"SmiteshP/nvim-gps",
+--	requires = "nvim-treesitter/nvim-treesitter"
+--}
 	use {'vim-airline/vim-airline',require = 'vim-airilne/vim-airline-themes'}
 	use 'nvim-treesitter/nvim-treesitter-refactor'
 	use 'gcmt/wildfire.vim'
@@ -26,11 +48,22 @@ require('packer').startup(function(use)
 	use 'folke/zen-mode.nvim'
 	use 'mhinz/vim-startify'
 	use {"ellisonleao/glow.nvim"}
-	--use {'gelguy/wilder.nvim',
-	--config = function()
-	--	require('wilder').setup{'modes'= [':', '/', '?']}end
-	--
-	--}
+	-- Lua
+	use {
+	  "folke/twilight.nvim",
+	  config = function()
+	    require("twilight").setup {
+	      -- your configuration comes here
+	      -- or leave it empty to use the default settings
+	      -- refer to the configuration section below
+	    }
+	  end
+	}
+
+	use {'gelguy/wilder.nvim',
+		run = ':UpdateRemotePlugins',
+	config = "vim.cmd [[ call wilder#setup({'modes': [':', '/', '?']}) ]]"	
+	}
 	use 'dstein64/vim-startuptime'
 	use 'lukas-reineke/indent-blankline.nvim'
 	use 'jiangmiao/auto-pairs'
