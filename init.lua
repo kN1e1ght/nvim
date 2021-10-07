@@ -1,7 +1,7 @@
 vim.cmd[[
 set termguicolors
 ]]
-require('impatient').enable_profile()
+require'impatient'.enable_profile()
 vim.g.loaded_gzip = 1
 vim.g.loaded_tar = 1
 vim.g.loaded_tarPlugin = 1
@@ -26,12 +26,12 @@ require('packer').init(
     compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
   }
 )
+require("plugins")
 require('packer_compiled')
 require("opt")
 
 require("mappings")
 
-require("plugins")
 
 
 
