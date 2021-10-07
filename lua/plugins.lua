@@ -18,7 +18,7 @@ require('packer').startup(function(use)
 	use 'sainnhe/edge'
 	use 'glepnir/lspsaga.nvim'
 	use 'itchyny/vim-cursorword'
-	use 'vim-airline/vim-airline-themes'
+	use 'hoob3rt/lualine.nvim'
 	use 'simrat39/symbols-outline.nvim'
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
@@ -39,7 +39,6 @@ require('packer').startup(function(use)
 --	"SmiteshP/nvim-gps",
 --	requires = "nvim-treesitter/nvim-treesitter"
 --}
-	use {'vim-airline/vim-airline',require = 'vim-airilne/vim-airline-themes'}
 	use 'nvim-treesitter/nvim-treesitter-refactor'
 	use 'gcmt/wildfire.vim'
 	use 'simrat39/rust-tools.nvim'
