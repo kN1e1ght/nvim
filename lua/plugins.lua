@@ -5,7 +5,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd 'packadd packer.nvim'
 end
 
-require('packer').startup(function(use)
+local packer = require('packer')
+--packer.init({
+--	complile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
+--})
+packer.startup(function(use)
 
 
   -- Packer can manage itself
@@ -19,6 +23,7 @@ require('packer').startup(function(use)
 	use 'glepnir/lspsaga.nvim'
 	use 'itchyny/vim-cursorword'
 	use 'hoob3rt/lualine.nvim'
+	use 'lewis6991/impatient.nvim'
 	use 'simrat39/symbols-outline.nvim'
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
@@ -94,7 +99,8 @@ require('packer').startup(function(use)
 
 
 
-end)
+end
+  )
 
 
 require('setup')
