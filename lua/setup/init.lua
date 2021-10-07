@@ -1,4 +1,3 @@
-require('packer_compiled')
 require('setup.nvim-ts-rainbow')
 require('setup.nvim-lsp-installer')
 require('setup.nvim-tree')
